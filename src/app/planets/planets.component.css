@@ -1,20 +1,32 @@
-
-
-.planets {
+.planets-list {
+  display: inline-block;
   font-size: 15px;
   font-weight: 400;
-  letter-spacing: 1px;
-  padding: 12px 0 12px 12px;
-  margin-bottom: 12px;
+  text-align: center;
+  padding: 20px;
+  margin: 10px;
   cursor: pointer;
-  border: 1px solid #e3e348;
+  border: 2px solid #e3e348;
   border-radius: 5px;
+  box-shadow: 0 1px 4px #E3E348FF;
+  width: calc(33.333% - 20px);
   transition: 0.3s;
 }
 
-.planets:hover {
-  background-color: #e3e348;
+
+.planets-list:hover {
+  background-color: #ECE9F2;
   color: #384047;
+}
+
+.planet-icon {
+  width: 50px;
+  height: 50px;
+  transition: 0.3s;
+}
+
+.planets-list:hover .planet-icon {
+  transform: translateY(-7px);
 }
 
 .btns {
@@ -39,3 +51,16 @@
   color: #384047;
 }
 
+.btn-page:disabled, .btn-page:disabled:hover {
+  color: #b3b3b3;
+  border-color: #b3b3b3;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+@media (max-width: 800px) {
+  .planets-list {
+    width: 100%;
+    margin: 10px 0;
+  }
+}

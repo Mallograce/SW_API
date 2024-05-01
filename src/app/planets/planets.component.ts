@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PlanetsApiService } from '../services/planets-api.service'
-import { PlanetSummary } from "../models/planets-api.models";
-import {HeaderComponent} from "../header/header.component";
+import { PlanetsApiService } from '../../services/planets-api.service'
+import { AllPlanetInfo } from "../../models/planets-api.models";
+import { HeaderComponent } from "../header/header.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-planets',
@@ -14,9 +15,12 @@ import {HeaderComponent} from "../header/header.component";
 })
 export class PlanetsComponent implements OnInit {
 
-  constructor(private apiPlanets: PlanetsApiService) { }
+  constructor(
+    private apiPlanets: PlanetsApiService,
+    private router: Router
+    ) { }
 
-  planets: PlanetSummary[] = [];
+  planets: AllPlanetInfo[] = [];
   prevPagePlanets: string | null = null;
   nextPagePlanets: string | null = null;
 
@@ -44,7 +48,7 @@ export class PlanetsComponent implements OnInit {
     }
   }
 
-  openPlanet() {
-
+  openPlanet(id: string) {
+    this.router.navigate(['/planets', id]); // Переход на страницу деталей планеты
   }
 }

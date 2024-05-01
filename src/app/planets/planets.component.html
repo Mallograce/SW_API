@@ -1,12 +1,15 @@
 <app-header></app-header>
-@for (planet of planets; track planet) {
-  <div class="planets" (click)="openPlanet()">
-    <p>
-      {{ planet.uid }}.{{ planet.name }}
-    </p>
+<section>
+    @for (planet of planets; track planet) {
+      <div class="planets-list" (click)="openPlanet(planet.uid)">
+        <img class="planet-icon" src="assets/svg/orbit-satellite-svgrepo-com.svg" alt="planet-icon">
+        <p>
+          {{ planet.name }}
+        </p>
+      </div>
+    }
+  <div class="btns">
+    <button class="btn-page" (click)="goToPreviousPage()" [disabled]="! prevPagePlanets">Пред</button>
+    <button class="btn-page" (click)="goToNextPage()" [disabled]="!nextPagePlanets">След</button>
   </div>
-}
-<div class="btns">
-  <button class="btn-page" (click)="goToPreviousPage()" [disabled]="! prevPagePlanets">Пред</button>
-  <button class="btn-page" (click)="goToNextPage()" [disabled]="!nextPagePlanets">След</button>
-</div>
+</section>
