@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.planet, .residents {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ECE9F2;
+  border-radius: 5px;
+}
+
+.planet p, .residents p {
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.residents p {
+  cursor: pointer;
+}
+
+.residents {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter {
+  margin-bottom: 20px;
+}
+
+#gender-filter {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.details {
+  transition: 0.3s;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+}
+
+.details.open {
+  max-height: 150px;
+  opacity: 1;
+}
+
+.detail-open {
+  color: #b3b3b3;
+}
+
+@media  (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .planet, .residents {
+    padding: 10px;
+  }
+}

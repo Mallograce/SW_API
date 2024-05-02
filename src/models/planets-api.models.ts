@@ -1,3 +1,5 @@
+/// Интерфейсы для плаенет
+
 export interface Planets {
   message: string;
   total_records: number;

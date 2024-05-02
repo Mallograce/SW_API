@@ -1,7 +1,38 @@
+<app-header></app-header>
 <section>
-@if (planet) {
-  <p>{{ planet.name }}</p>
-  <p>{{ planet.climate }}</p>
-  <p>{{ planet.created }}</p>
-}
+  <div class="container">
+    <div class="planet">
+      @if (planet) {
+        <p>Название планеты: {{ planet.name }}</p>
+        <p>Климат: {{ planet.climate }}</p>
+        <p>Год создания: {{ planet.created }}</p>
+        <p>Гравитация: {{ planet.gravity }}</p>
+        <p>Местность: {{ planet.terrain }}</p>
+        <p>Гравитация: {{ planet.gravity }}</p>
+      }
+    </div>
+
+    <div class="residents">
+      <div class="filter">
+        <label for="gender-filter">Filter by gender:</label>
+        <select id="gender-filter" [(ngModel)]="selectedGender" (change)="filterResidentsByGender()">
+          <option value="">Все</option>
+          <option value="male">Мужской пол</option>
+          <option value="female">Женский пол</option>
+          <option value="n/a">Другой</option>
+        </select>
+      </div>
+      <ul>
+        @for (res of filteredResidents; track res; let i = $index) {
+          <p (click)="toggleDetails(i)">{{ i + 1 }}.{{ res.name }}</p>
+          <div [ngClass]="{'open': selectedResidentIndex === i}" class="details">
+            <p class="detail-open">Рост: {{ res.height }}</p>
+            <p class="detail-open">Вес: {{ res.mass }}</p>
+            <p class="detail-open">Цвет волос: {{ res.hair_color }}</p>
+            <p class="detail-open">Цвет кожи: {{ res.skin_color }}</p>
+          </div>
+        }
+      </ul>
+    </div>
+  </div>
 </section>

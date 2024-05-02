@@ -10,7 +10,7 @@ import { PlanetsComponent } from "./planets/planets.component";
   imports: [
     RouterOutlet,
     HttpClientModule,
-    PlanetsComponent
+    PlanetsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
